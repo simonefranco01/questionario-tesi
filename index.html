@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Questionario di tesi · Uomini e consumi</title>
+  <meta name="description" content="Questionario anonimo per una tesi magistrale su consumi e stili di vita. 5–7 minuti.">
+  <meta name="theme-color" content="#F6DDA9">
+  <meta name="robots" content="noindex">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Questionario di tesi · Uomini e consumi">
+  <meta property="og:description" content="Questionario anonimo per una tesi magistrale su consumi e stili di vita. 5–7 minuti.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M5 3h22l-3 25H8z' fill='%23E3A33B' stroke='%231F1A13' stroke-width='2.5' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+  <!-- Font caricati senza bloccare il primo rendering -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap"></noscript>
+
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="bg" aria-hidden="true">
+    <span style="--x:8%;--s:10px;--d:13s;--dl:-2s"></span>
+    <span style="--x:19%;--s:6px;--d:10s;--dl:-7s"></span>
+    <span style="--x:31%;--s:14px;--d:16s;--dl:-4s"></span>
+    <span style="--x:46%;--s:7px;--d:11s;--dl:-9s"></span>
+    <span style="--x:58%;--s:11px;--d:14s;--dl:-1s"></span>
+    <span style="--x:69%;--s:5px;--d:9s;--dl:-5s"></span>
+    <span style="--x:80%;--s:12px;--d:15s;--dl:-11s"></span>
+    <span style="--x:91%;--s:8px;--d:12s;--dl:-3s"></span>
+  </div>
+
+  <div class="app" id="app">
+    <header class="top">
+      <div class="top-row">
+        <span class="brand">
+          <svg class="brand-glass" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 3h22l-3 25H8z"/></svg>
+          <span id="brand-text">Questionario di tesi</span>
+          <span class="badge-test" id="test-badge" hidden>TEST</span>
+        </span>
+        <div class="top-actions">
+          <button type="button" class="pill-toggle" id="autoread" aria-pressed="false">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="5" height="6" rx="2"/><rect x="16" y="14" width="5" height="6" rx="2"/></svg>
+            <span>Lettura auto</span>
+          </button>
+          <div class="lang" id="lang" role="group" aria-label="Lingua" data-active="it">
+            <button type="button" data-lang="it" aria-pressed="true" lang="it">IT</button>
+            <button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
+          </div>
+        </div>
+      </div>
+      <div class="progress" id="progress" role="progressbar" aria-label="Avanzamento" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" hidden>
+        <div class="progress-fill"><div class="progress-liquid"></div></div>
+      </div>
+    </header>
+
+    <main class="stage" id="stage"></main>
+
+    <nav class="nav" id="nav" hidden>
+      <button type="button" class="btn btn-ghost" id="back">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H6M11 6l-6 6 6 6"/></svg><span>Indietro</span>
+      </button>
+      <span class="spacer"></span>
+      <button type="button" class="btn-link" id="skip">Salta</button>
+      <button type="button" class="btn btn-primary" id="next">
+        <span>Avanti</span><svg class="ico arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      </button>
+    </nav>
+  </div>
+
+  <div id="live" class="sr-only" aria-live="polite"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <noscript><p class="noscript">Per compilare il questionario serve JavaScript attivo.</p></noscript>
+
+  <script src="assets/config.js" defer></script>
+  <script src="assets/i18n.js" defer></script>
+  <script src="assets/questions.js" defer></script>
+  <script src="assets/speech.js" defer></script>
+  <script src="assets/submit.js" defer></script>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>
