@@ -77,6 +77,17 @@
     if (vars) s = s.replace(/\{(\w+)\}/g, function (m, k) { return vars[k] != null ? vars[k] : m; });
     return s;
   }
+  function rich(t) { return esc(t).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>"); }
+  function introBlock(b) {
+    if (b.h) return '<h2 class="intro-h">' + esc(tr(b.h)) + "</h2>";
+    if (b.ol) return '<ol class="intro-list">' + b.ol.map(function (x) { return "<li>" + rich(tr(x)) + "</li>"; }).join("") + "</ol>";
+    return "<p>" + rich(tr(b.p)) + "</p>";
+  }
+  function titleHtml(t) {
+    var k = t.lastIndexOf(", ");
+    if (k < 0) return esc(t);
+    return esc(t.slice(0, k + 1)) + ' <span class="title-pill">' + esc(t.slice(k + 2)) + "</span>";
+  }
   function esc(s) {
     return String(s).replace(/[&<>"']/g, function (c) {
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
@@ -361,10 +372,8 @@
       '<section class="screen screen-welcome" aria-labelledby="w-title">' +
         '<div class="welcome-mark stagger">' + glass(0.34, "fizzy") + "</div>" +
         '<p class="eyebrow stagger">' + esc(ui("eyebrow")) + "</p>" +
-        '<h1 id="w-title" class="display display-long stagger" tabindex="-1" data-autofocus>' + esc(ui("welcomeTitle")) + "</h1>" +
-        '<div class="intro stagger">' + T.ui.intro.map(function (b) {
-          return "<p><strong>" + esc(tr(b.lead)) + "</strong> " + esc(tr(b.text)) + "</p>";
-        }).join("") + "</div>" +
+        '<h1 id="w-title" class="display display-long stagger" tabindex="-1" data-autofocus>' + titleHtml(ui("welcomeTitle")) + "</h1>" +
+        '<div class="intro stagger">' + T.ui.intro.map(introBlock).join("") + "</div>" +
         '<ul class="facts stagger">' +
           "<li>" + I.clock + "<span>" + esc(ui("factTime")) + "</span></li>" +
           "<li>" + I.lock + "<span>" + esc(ui("factAnon")) + "</span></li>" +
