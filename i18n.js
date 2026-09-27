@@ -71,27 +71,10 @@
     // Privacy
     privacyTitle: { it: "Prima di iniziare", en: "Before you start" },
     privacyIntro: {
-      it: "Questo questionario fa parte della tesi di laurea magistrale di Simone Franco, corso di laurea in Marketing e Comunicazione d'Impresa, Università degli Studi di Verona.",
-      en: "This questionnaire is part of the master's thesis of Simone Franco, Master's degree in Marketing and Business Communication, University of Verona."
+      it: "Le risposte sono conservate in un foglio Google accessibile solo all'autore della tesi, analizzate in forma aggregata e usate esclusivamente per la tesi.",
+      en: "Answers are stored in a Google Sheet that only the author of the thesis can access, analysed in aggregate form and used solely for the thesis."
     },
-    privacyPoints: {
-      it: [
-        "È anonimo: non chiede e non registra nomi, indirizzi email o altri dati che possano identificarti.",
-        "Oltre alle risposte vengono registrati solo dati tecnici: lingua scelta, durata della compilazione, data e ora di inizio e la campagna da cui arrivi.",
-        "Le risposte sono conservate in un foglio Google accessibile solo all'autore della tesi, analizzate in forma aggregata e usate esclusivamente per la tesi.",
-        "Le risposte sono raccolte e conservate tramite servizi Google (Moduli e Fogli); la pagina carica anche i caratteri tipografici da Google Fonts.",
-        "Il profilo e la guida finale vengono calcolati sul tuo dispositivo: non inviano nessun dato in più.",
-        "Puoi saltare qualsiasi domanda e interrompere quando vuoi. Il browser conserva i progressi su questo dispositivo per farti riprendere e li cancella dopo l'invio."
-      ],
-      en: [
-        "It's anonymous: it doesn't ask for or record names, email addresses or any other data that could identify you.",
-        "Besides your answers, only technical data is recorded: chosen language, time taken, start date and time, and the campaign you came from.",
-        "Answers are stored in a Google Sheet that only the author of the thesis can access, analysed in aggregate form and used solely for the thesis.",
-        "Responses are collected and stored through Google services (Forms and Sheets); the page also loads its fonts from Google Fonts.",
-        "Your profile and the final guide are worked out on your device: they don't send any extra data.",
-        "You can skip any question and stop whenever you like. Your browser keeps your progress on this device so you can resume, and deletes it after you submit."
-      ]
-    },
+    privacyPoints: { it: [], en: [] },
     privacyContact: { it: "Per informazioni: simone.franco_02@studenti.univr.it", en: "For information: simone.franco_02@studenti.univr.it" },
     consentPrivacy: { it: "Ho letto e acconsento al trattamento dei dati", en: "I have read and consent to the processing of my data" },
     consentAge:     { it: "Ho almeno 18 anni", en: "I am at least 18 years old" },
