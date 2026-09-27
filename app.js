@@ -14,6 +14,7 @@
   var Profiles = window.PROFILES;
   var doneProfile = null;
   var doneIdea = null;
+  var doneNotes = [];
 
   var params = new URLSearchParams(location.search);
   var TEST = params.get("test") === "1";
@@ -818,7 +819,8 @@
       .then(function () {
         doneProfile = Profiles.compute(S.answers, SV.path(S.answers));
         doneIdea = SV.path(S.answers) === "B" ? Profiles.computeIdea(S.answers) : null;
-        if (!SIMULATE) store.set(DONE_KEY, { at: new Date().toISOString(), profile: doneProfile, idea: doneIdea });
+        doneNotes = SV.path(S.answers) === "B" ? Profiles.computeNotes(S.answers) : [];
+        if (!SIMULATE) store.set(DONE_KEY, { at: new Date().toISOString(), profile: doneProfile, idea: doneIdea, notes: doneNotes });
         sealed = true;
         clearTimeout(saveTimer);
         store.del(STATE_KEY);
@@ -863,7 +865,8 @@
     return "" + Profiles.guideFile(id) + ".pdf";
   }
 
-  function profileCard(id, idea) {
+  function profileCard(id, idea, notes) {
+    notes = (notes || []).filter(function (n) { return Profiles.note && Profiles.note[n]; });
     var p = id && Profiles.profiles[id];
     if (!p) return "";
     return '<div class="profile-card stagger">' +
@@ -871,6 +874,8 @@
         '<h2 class="profile-name">' + esc(tr(p.name)) + "</h2>" +
         '<p class="profile-desc">' + esc(tr(p.description)) + "</p>" +
         (idea && Profiles.idee[idea] ? '<p class="profile-idea"><strong>' + esc(ui("ideaLabel")) + ":</strong> " + esc(tr(Profiles.idee[idea])) + "</p>" : "") +
+        (notes.length ? '<div class="profile-notes"><p class="profile-notes-label">' + esc(ui("notesLabel")) + "</p><ul>" +
+          notes.map(function (n) { return "<li>" + esc(tr(Profiles.note[n])) + "</li>"; }).join("") + "</ul></div>" : "") +
         '<a class="btn btn-primary btn-xl" id="download" href="' + esc(guideUrl(id)) + '" target="_blank" rel="noopener" download>' +
           "<span>" + esc(ui("download")) + "</span>" + I.download + "</a>" +
         '<p class="profile-note">' + esc(ui("guideNote")) + "</p>" +
@@ -884,7 +889,7 @@
           '<span class="done-check" aria-hidden="true">' + I.check + "</span></div>" +
         '<h1 class="display stagger" id="d-title" tabindex="-1" data-autofocus>' + esc(ui("doneTitle")) + "</h1>" +
         '<p class="lead stagger">' + esc(ui("doneBody")) + "</p>" +
-        profileCard(doneProfile, doneIdea) +
+        profileCard(doneProfile, doneIdea, doneNotes) +
         '<p class="lead share-ask stagger">' + esc(ui("shareAsk")) + "</p>" +
         shareBlock() + testPanel() +
       "</section>");
@@ -899,7 +904,7 @@
         '<div class="big-glass stagger">' + glass(0.94, "full") + "</div>" +
         '<h1 class="title stagger" id="a-title" tabindex="-1" data-autofocus>' + esc(ui("alreadyTitle")) + "</h1>" +
         '<p class="lead stagger">' + esc(ui("alreadyBody")) + "</p>" +
-        profileCard(saved.profile, saved.idea) +
+        profileCard(saved.profile, saved.idea, saved.notes) +
         shareBlock() +
       "</section>");
     wireShare(node);
