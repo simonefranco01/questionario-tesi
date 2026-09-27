@@ -98,6 +98,18 @@ var DOMANDE = [
   { k: 'qb9', copia: 'q9', t: 'B9. Negli ultimi 12 mesi hai acquistato… (più risposte)' },
   { k: 'qb10', copia: 'q10', t: 'B10. Quanto spendi al mese, in media, per corpo e cura di sé (palestra inclusa)?' },
   { k: 'qb10b', copia: 'q10b', t: 'B10b. Quando compri integratori o prodotti per la cura di sé, come scegli cosa comprare? (massimo 2 risposte)' },
+  // Domande su di lei (percorso B), aggiunte dopo il lancio della v2
+  { k: 'qw1', type: 'single', t: 'W1. Quanto tempo dedichi alla cura di te (pelle, capelli, trucco) in una giornata normale?',
+    o: ['Meno di 10 minuti', 'Da 10 a 20 minuti', 'Da 20 a 40 minuti', 'Più di 40 minuti'] },
+  { k: 'qw2', type: 'multi', t: 'W2. Negli ultimi 6 mesi hai comprato qualcosa dopo averlo visto sui social? (più risposte)',
+    o: ['Skincare', 'Trucco', 'Prodotti per capelli', 'Integratori', 'Abbigliamento o accessori', 'Niente di tutto questo'] },
+  { k: 'qw3', type: 'single', t: 'W3. Ti è capitato di pagare di più un prodotto "da donna" rispetto alla versione da uomo o neutra?',
+    o: ['Sì, spesso', 'Qualche volta', 'Non ci ho mai fatto caso', 'No'] },
+  { k: 'qw4', type: 'multi', t: 'W4. Cosa ti convince di più a provare un prodotto nuovo? (massimo 2 risposte)',
+    o: ['Le recensioni online', "Il consiglio di un'amica", 'Influencer o creator', 'Farmacista o dermatologo',
+        'Uno sconto o una promozione', 'Gli ingredienti in etichetta'] },
+  { k: 'qw5a', type: 'scale', t: 'W5a. Ho comprato prodotti di bellezza che poi non ho mai finito.' },
+  { k: 'qw5b', type: 'scale', t: 'W5b. Certe pubblicità mi fanno sentire che al mio aspetto manca sempre qualcosa.' },
   { k: 'q18a', type: 'multi', t: '18a. Quali di questi consumi associ oggi a un uomo "virile"? (corpo e cura, più risposte)',
     o: CONSUMI_BASE.concat(['Nessuno di questi']) },
   { k: 'q18b', type: 'multi', t: '18b. E tra questi, quali associ oggi a un uomo "virile"? (tempo libero e status, più risposte)',
@@ -230,4 +242,29 @@ function creaQuestionario() {
 
 function prova_(fn) {
   try { fn(); } catch (e) { console.log('(impostazione saltata: ' + e.message + ')'); }
+}
+
+/*
+ * AGGIUNTA AL FORM ESISTENTE (v2): crea solo le domande "qw" nel form già in uso,
+ * senza toccare le altre, e stampa le righe da aggiungere a config.js.
+ * Eseguire UNA volta sola.
+ */
+var FORM_V2_ID = '137ISg9m8NWY3LpN1ECZ2zaEan6pZ-wlsMZSpG-r31OY';
+function aggiungiDomandeDonne() {
+  var form = FormApp.openById(FORM_V2_ID);
+  var esistenti = form.getItems().map(function (it) { return it.getTitle(); });
+  var righe = [];
+  DOMANDE.filter(function (d) { return d.k.indexOf('qw') === 0; }).forEach(function (d) {
+    if (esistenti.indexOf(d.t) !== -1) throw new Error('Domanda già presente: ' + d.t);
+    var it, r;
+    switch (d.type) {
+      case 'single': it = form.addMultipleChoiceItem().setTitle(d.t).setChoiceValues(d.o); r = it.createResponse(d.o[0]); break;
+      case 'multi': it = form.addCheckboxItem().setTitle(d.t).setChoiceValues(d.o); r = it.createResponse([d.o[0]]); break;
+      case 'scale': it = form.addScaleItem().setTitle(d.t).setBounds(1, 5).setLabels(SCALA_MIN, SCALA_MAX).setHelpText(AIUTO_SCALA); r = it.createResponse(1); break;
+    }
+    it.setRequired(false);
+    var m = form.createResponse().withItemResponse(r).toPrefilledUrl().match(/entry\.(\d+)=/);
+    righe.push('    ' + d.k + ': "entry.' + m[1] + '",');
+  });
+  console.log('===== RIGHE PER config.js =====\n' + righe.join('\n') + '\n===== FINE =====');
 }
