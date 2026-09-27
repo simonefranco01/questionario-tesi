@@ -13,9 +13,11 @@ window.SURVEY = (function () {
     A: ["q6", "q7", "q8", "q9", "q10", "q10b", "q10c", "q10d", "q10e",
         "q11", "q12", "q13", "q15",
         "q17a", "q17c", "q17d", "q17e", "q17f", "q17g", "q17h", "q17i"],
+    // Le domande "qw" (su di lei) sono sparse tra quelle sugli uomini, per alternare.
     B: ["qb6", "qb9", "qb10", "qb10b",
-        "q18a", "q18b", "q18c",
-        "q19a", "q19b", "q19c", "q19d", "q19e", "q19f", "q19g", "q19h"],
+        "q18a", "q18b", "qw1", "q18c",
+        "q19a", "q19b", "qw2", "q19c", "q19d", "qw3",
+        "q19e", "q19f", "qw4", "q19g", "q19h", "qw5a", "qw5b"],
     chiusura: ["qbarba", "q21", "q22", "q23"]
   };
 
@@ -52,6 +54,12 @@ window.SURVEY = (function () {
     qb9:   { type: "multi",  section: "body", exclusive: ["nessuno"] },
     qb10:  { type: "single", section: "body" },
     qb10b: { type: "multi",  section: "body", max: 2 },
+    qw1:  { type: "single", section: "self" },
+    qw2:  { type: "multi",  section: "self", exclusive: ["niente"] },
+    qw3:  { type: "single", section: "self" },
+    qw4:  { type: "multi",  section: "self", max: 2 },
+    qw5a: { type: "scale",  section: "self", group: "qw5" },
+    qw5b: { type: "scale",  section: "self", group: "qw5" },
     q18a: { type: "multi", section: "consumption", exclusive: ["nessuno"] },
     q18b: { type: "multi", section: "consumption", exclusive: ["nessuno"] },
     q18c: { type: "multi", section: "consumption", exclusive: ["nessuna", "scelta_sua"] },
