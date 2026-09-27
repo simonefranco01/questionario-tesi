@@ -37,25 +37,23 @@
     // Blocchi dell'introduzione: p = paragrafo, h = sottotitolo, ol = elenco numerato.
     // **testo** = grassetto.
     intro: [
-      { p: { it: "Ciao! Mi chiamo Simone Franco e ho preparato una guida **gratuita e personalizzata** per difenderti dal marketing nel 2026.",
-             en: "Hi! My name is Simone Franco and I've put together a **free, personalised** guide to defending yourself from marketing in 2026." } },
-      { p: { it: "Perché? Non avevo niente di meglio da fare? Te lo spiego in breve. Sto facendo la laurea magistrale in Marketing e Comunicazione d'Impresa all'Università degli Studi di Verona e sto raccogliendo dati **anonimi** per la mia tesi sui consumi di oggi. Per ringraziare chi ha voglia di aiutarmi ho deciso di fargli un regalo: una guida su misura.",
-             en: "Why? Did I have nothing better to do? Here's the short version. I'm doing a master's degree in Marketing and Business Communication at the University of Verona and I'm collecting **anonymous** data for my thesis on consumption today. To thank anyone willing to help, I decided to give them a gift: a tailor-made guide." } },
-      { p: { it: "Ho costruito un calcolatore che, in base alle tue risposte, individua il tuo profilo di consumatore e ti consegna la guida pensata per quel profilo.",
-             en: "I built a calculator that uses your answers to work out your consumer profile and gives you the guide written for that profile." } },
+      { p: { it: "Ciao! Sono Simone Franco e ho preparato una guida **gratuita e personalizzata** per difenderti dal marketing nel 2026.",
+             en: "Hi! I'm Simone Franco and I've put together a **free, personalised** guide to defending yourself from marketing in 2026." } },
+      { p: { it: "Perché? Non avevo niente di meglio da fare? Non proprio: sto facendo la magistrale in Marketing e Comunicazione d'Impresa all'Università di Verona e raccolgo dati **anonimi** per la mia tesi sui consumi di oggi. La guida è il mio grazie a chi mi aiuta.",
+             en: "Why? Did I have nothing better to do? Not quite: I'm doing a master's in Marketing and Business Communication at the University of Verona and I'm collecting **anonymous** data for my thesis on consumption today. The guide is my thank-you to anyone who helps." } },
+      { p: { it: "Tu rispondi, un calcolatore trova il tuo profilo di consumatore e ti consegna la guida fatta per te.",
+             en: "You answer, a calculator works out your consumer profile and gives you the guide made for you." } },
       { h: { it: "Perché fidarti di me?", en: "Why trust me?" } },
       { ol: [
-        { it: "Non ci sono scopi commerciali: nessun brand mi paga, lo faccio per la ricerca della mia tesi.",
-          en: "There's no commercial purpose: no brand pays me, I'm doing this for my thesis research." },
-        { it: "È tutto anonimo: non ti chiedo nome, email o telefono.",
-          en: "It's completely anonymous: I won't ask for your name, email or phone number." },
-        { it: "La guida nasce da 5 anni di studio, quasi due lauree e 3 anni di lavoro nel marketing. Ogni consiglio indica la sua fonte.",
-          en: "The guide comes from 5 years of study, almost two degrees and 3 years working in marketing. Every tip cites its source." }
+        { it: "Nessun brand mi paga: è ricerca per una tesi.",
+          en: "No brand pays me: this is research for a thesis." },
+        { it: "È tutto anonimo: niente nome, email o telefono.",
+          en: "It's all anonymous: no name, email or phone number." },
+        { it: "La guida nasce da 5 anni di studio (quasi due lauree) e 3 di lavoro nel marketing, e ogni consiglio ha la sua fonte.",
+          en: "The guide comes from 5 years of study (almost two degrees) and 3 years working in marketing, and every tip cites its source." }
       ] },
-      { p: { it: "**Come funziona:** compili il questionario in 5–8 minuti e alla fine scarichi la tua guida in PDF.",
-             en: "**How it works:** you fill in the questionnaire in 5–8 minutes and at the end you download your PDF guide." } },
-      { p: { it: "**Una richiesta:** non dare le risposte che ti sembrano più \"giuste\", ma quelle che ti rappresentano davvero. Altrimenti il calcolo sbaglia profilo e ricevi una guida che non fa per te.",
-             en: "**One request:** don't give the answers that seem most \"correct\", give the ones that really describe you. Otherwise the calculation gets your profile wrong and you'll get a guide that isn't right for you." } }
+      { p: { it: "**Ci vogliono 5–8 minuti.** Una sola richiesta: rispondi per come sei davvero, non come ti sembra \"giusto\". Altrimenti il profilo sbaglia e la guida non fa per te.",
+             en: "**It takes 5–8 minutes.** Just one request: answer as you really are, not as seems \"right\". Otherwise your profile comes out wrong and the guide won't suit you." } }
     ],
     factTime:     { it: "5–8 minuti", en: "5–8 minutes" },
     factAnon:     { it: "Anonimo", en: "Anonymous" },
