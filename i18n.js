@@ -111,6 +111,7 @@
     sec_body:        { it: "Movimento e consumi", en: "Exercise and spending" },
     sec_opinions:    { it: "Opinioni", en: "Opinions" },
     sec_consumption: { it: "Consumi", en: "Consumption" },
+    sec_self:        { it: "Tu e i tuoi acquisti", en: "You and your shopping" },
     sec_closing:     { it: "Per chiudere", en: "To wrap up" },
     msHalf:   { it: "Metà strada", en: "Halfway there" },
     msAlmost: { it: "Quasi fatto", en: "Almost done" },
@@ -132,6 +133,7 @@
                     en: "Your answers have been sent. Here's what they say about you." },
     profileLabel: { it: "Il tuo profilo", en: "Your profile" },
     ideaLabel:    { it: "La tua idea di uomo", en: "Your idea of men" },
+    notesLabel:   { it: "Per te, dalle tue risposte", en: "For you, from your answers" },
     download:     { it: "Scarica la guida PDF", en: "Download the PDF guide" },
     guideNote:    { it: "La guida è la stessa per tutte le persone con il tuo profilo: non contiene dati tuoi.",
                     en: "The guide is the same for everyone with your profile: it contains none of your data." },
@@ -461,6 +463,60 @@
                     en: "A man who waxes or shaves his chest, arms or legs seems less masculine to me." } },
     q19g: { text: { it: "Il barbecue e la griglia sono cose da uomini.", en: "Barbecue and grilling are men's things." } },
     q19h: { text: { it: "L'auto che un uomo guida dice molto di lui.", en: "The car a man drives says a lot about him." } },
+
+    // ---------- PERCORSO B: DOMANDE SU DI LEI ----------
+    qw1: {
+      text: { it: "Quanto tempo dedichi alla cura di te (pelle, capelli, trucco) in una giornata normale?",
+              en: "How much time do you spend on self-care (skin, hair, make-up) on a normal day?" },
+      options: [
+        o("meno10", "Meno di 10 minuti", "Less than 10 minutes"),
+        o("10_20", "Da 10 a 20 minuti", "10 to 20 minutes"),
+        o("20_40", "Da 20 a 40 minuti", "20 to 40 minutes"),
+        o("40piu", "Più di 40 minuti", "More than 40 minutes")
+      ]
+    },
+    qw2: {
+      text: { it: "Negli ultimi 6 mesi hai comprato qualcosa dopo averlo visto sui social?",
+              en: "In the last 6 months, have you bought something after seeing it on social media?" },
+      options: [
+        o("skincare", "Skincare", "Skincare"),
+        o("trucco", "Trucco", "Make-up"),
+        o("capelli", "Prodotti per capelli", "Hair products"),
+        o("integratori", "Integratori", "Supplements"),
+        o("abbigliamento", "Abbigliamento o accessori", "Clothing or accessories"),
+        o("niente", "Niente di tutto questo", "None of these")
+      ]
+    },
+    qw3: {
+      text: { it: "Ti è capitato di pagare di più un prodotto “da donna” rispetto alla versione da uomo o neutra? (rasoi, deodoranti, shampoo…)",
+              en: "Have you ever paid more for a “women's” product than for the men's or neutral version? (razors, deodorants, shampoo…)" },
+      options: [
+        o("spesso", "Sì, spesso", "Yes, often"),
+        o("qualche", "Qualche volta", "Sometimes"),
+        o("mai_fatto_caso", "Non ci ho mai fatto caso", "I've never noticed"),
+        o("no", "No", "No")
+      ]
+    },
+    qw4: {
+      text: { it: "Cosa ti convince di più a provare un prodotto nuovo?", en: "What most convinces you to try a new product?" },
+      options: [
+        o("recensioni", "Le recensioni online", "Online reviews"),
+        o("amica", "Il consiglio di un'amica", "A friend's recommendation"),
+        o("influencer", "Influencer o creator", "Influencers or creators"),
+        o("esperto", "Farmacista o dermatologo", "A pharmacist or dermatologist"),
+        o("sconto", "Uno sconto o una promozione", "A discount or promotion"),
+        o("etichetta", "Gli ingredienti in etichetta", "The ingredients on the label")
+      ]
+    },
+    qw5: {
+      text: { it: "E su di te: quanto sei d'accordo?", en: "And about you: how much do you agree?" },
+      min: { it: "per niente d'accordo", en: "do not agree at all" },
+      max: { it: "del tutto d'accordo", en: "completely agree" }
+    },
+    qw5a: { text: { it: "Ho comprato prodotti di bellezza che poi non ho mai finito.",
+                    en: "I've bought beauty products that I never finished." } },
+    qw5b: { text: { it: "Certe pubblicità mi fanno sentire che al mio aspetto manca sempre qualcosa.",
+                    en: "Some adverts make me feel that something is always missing from how I look." } },
 
     // ---------- CHIUSURA ----------
     qbarba: {
