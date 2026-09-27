@@ -851,7 +851,7 @@
 
   // ---------- Profilo e guida PDF ----------
   function guideUrl(id) {
-    return "assets/guide/" + Profiles.guideFile(id) + ".pdf";
+    return "" + Profiles.guideFile(id) + ".pdf";
   }
 
   function profileCard(id, idea) {
