@@ -613,3 +613,9 @@ mark.ph { background: rgba(208, 138, 30, 0.28); color: inherit; padding: 0 3px; 
 .profile-card .btn { margin-top: 6px; text-decoration: none; max-width: 100%; min-width: 0; }
 .profile-note { margin: 8px 0 0; font-size: 13px; color: var(--ink-2); }
 .share-ask { font-size: 1rem; margin-bottom: 12px; }
+
+.profile-notes { text-align: left; margin: 0 0 16px; padding: 12px 14px; border-radius: var(--r); background: rgba(124, 199, 174, 0.22); border: 1px solid rgba(62, 154, 128, 0.35); }
+.profile-notes-label { text-align: center; margin: 0 0 6px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-2); }
+.profile-notes ul { margin: 0; padding-left: 18px; }
+.profile-notes li { margin: 0 0 6px; font-size: 0.95rem; color: var(--ink); }
+.profile-notes li:last-child { margin-bottom: 0; }
