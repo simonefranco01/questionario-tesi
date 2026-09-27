@@ -441,7 +441,7 @@
         '<h1 id="p-title" class="title stagger" tabindex="-1" data-autofocus>' + esc(ui("privacyTitle")) + "</h1>" +
         '<div class="privacy-box stagger">' +
           "<p>" + withPlaceholders(ui("privacyIntro")) + "</p>" +
-          "<ul>" + points + "</ul>" +
+          (points ? "<ul>" + points + "</ul>" : "") +
           '<p class="privacy-contact">' + withPlaceholders(ui("privacyContact")) + "</p>" +
         "</div>" +
         '<label class="check stagger"><input type="checkbox" id="c-privacy"' + (S.consent.privacy ? " checked" : "") + ">" +
