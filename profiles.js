@@ -577,6 +577,34 @@ window.PROFILES = (function () {
              en: "mixed. You see today's man as a mix of old and new, the gym next to the match." }
   };
 
+  // Percorso B: righe personali sotto il profilo, dalle domande "qw".
+  // Non cambiano profilo né guida: servono solo a restituire qualcosa di specifico.
+  var note = {
+    pinktax: { it: "Hai notato prezzi più alti sui prodotti “da donna”. Quando compri, confronta il prezzo al kg o al litro con la versione da uomo o neutra: spesso il prodotto è quasi identico.",
+               en: "You've noticed higher prices on “women's” products. When you shop, compare the price per kg or litre with the men's or neutral version: the product is often almost identical." },
+    pinktax_occhio: { it: "Non ci hai mai fatto caso? Alla prossima spesa confronta rasoio, deodorante o shampoo “da donna” con la versione da uomo o neutra, guardando il prezzo al kg o al litro.",
+                      en: "Never noticed? Next time you shop, compare a “women's” razor, deodorant or shampoo with the men's or neutral version, looking at the price per kg or litre." },
+    mancanza: { it: "Se una pubblicità ti fa sentire che ti manca qualcosa, sta funzionando come previsto. Prima di comprare quel prodotto, aspetta 48 ore: se lo vuoi ancora, compralo.",
+                en: "If an advert makes you feel something is missing, it's working as intended. Before buying that product, wait 48 hours: if you still want it, buy it." },
+    non_finiti: { it: "Hai prodotti mai finiti: prima di comprarne uno nuovo della stessa categoria, finisci quello aperto. È il modo più semplice per spendere meno senza rinunce.",
+                  en: "You have products you never finished: before buying a new one in the same category, finish the one you've opened. It's the simplest way to spend less without giving anything up." },
+    social: { it: "Hai comprato dopo averlo visto sui social. Prima del prossimo acquisto, cerca “#adv” o “sponsorizzato” nel post e leggi recensioni fuori dal profilo di chi lo consiglia.",
+              en: "You've bought after seeing it on social media. Before the next purchase, look for “#ad” or “sponsored” in the post and read reviews away from the profile recommending it." },
+    etichetta: { it: "Guardi gli ingredienti: bene. Ricorda che l'ordine in etichetta va dal più presente al meno presente, quindi l'ingrediente “star” in fondo alla lista conta poco.",
+                 en: "You check the ingredients: good. Remember they're listed from most to least present, so a “star” ingredient at the bottom of the list counts for little." }
+  };
+  function computeNotes(a) {
+    a = a || {};
+    var out = [];
+    if (a.qw3 === "spesso" || a.qw3 === "qualche") out.push("pinktax");
+    if (Number(a.qw5b) >= 4) out.push("mancanza");
+    if (Number(a.qw5a) >= 4) out.push("non_finiti");
+    if (arr(a.qw2).some(function (x) { return x !== "niente"; })) out.push("social");
+    if (arr(a.qw4).indexOf("etichetta") !== -1) out.push("etichetta");
+    if (a.qw3 === "mai_fatto_caso") out.push("pinktax_occhio");
+    return out.slice(0, 2);
+  }
+
   // Nome del file PDF (senza lingua ed estensione) per ogni profilo
   function guideFile(id) {
     var p = profiles[id];
@@ -584,7 +612,7 @@ window.PROFILES = (function () {
   }
 
   return {
-    fonti: fonti, claim: claim, compute: compute, computeIdea: computeIdea, idee: idee, scoreA: scoreA, scoreB: scoreB, profiles: profiles,
+    fonti: fonti, claim: claim, compute: compute, computeIdea: computeIdea, idee: idee, note: note, computeNotes: computeNotes, scoreA: scoreA, scoreB: scoreB, profiles: profiles,
     consigli: consigli, domandeFinali: domandeFinali, guideFile: guideFile,
     soglie: { corpo: SOGLIA_CORPO, tradizione: SOGLIA_TRADIZIONE }
   };
