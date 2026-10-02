@@ -448,21 +448,21 @@ mark.ph { background: rgba(208, 138, 30, 0.28); color: inherit; padding: 0 3px; 
 @keyframes shake { 0%,100% { transform: none; } 20% { transform: translateX(-8px); } 40% { transform: translateX(7px); } 60% { transform: translateX(-4px); } 80% { transform: translateX(2px); } }
 @keyframes shake-soft { 0%,100% { transform: none; } 30% { transform: translateX(-4px); } 60% { transform: translateX(3px); } }
 
-/* Scala 1-5 */
+/* Scala 1-4 */
 .scale { margin-top: 10px; }
 .scale-row {
   position: relative;
-  display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; align-items: center;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; align-items: center;
   --v: 0;
 }
 .scale-track {
-  position: absolute; left: 10%; right: 10%; top: 50%;
+  position: absolute; left: 12.5%; right: 12.5%; top: 50%;
   height: 4px; margin-top: -2px; border-radius: 4px;
   background: rgba(31, 26, 19, 0.14);
 }
 .scale-fill {
   height: 100%; border-radius: inherit; background: var(--ink);
-  width: calc(max(var(--v) - 1, 0) * 25%);
+  width: calc(max(var(--v) - 1, 0) * 33.333%);
   transition: width .5s var(--ease);
 }
 .scale-btn {
