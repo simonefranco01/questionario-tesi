@@ -28,7 +28,7 @@
     autoReadOn:      { it: "Lettura automatica attiva", en: "Auto read on" },
     autoReadOff:     { it: "Lettura automatica disattivata", en: "Auto read off" },
     speechUnavailable: { it: "La lettura vocale non è disponibile in questo browser.", en: "Text-to-speech isn't available in this browser." },
-    scaleSpeech:     { it: "Da 1, {min}, a 5, {max}.", en: "From 1, {min}, to 5, {max}." },
+    scaleSpeech:     { it: "Da 1, {min}, a 4, {max}.", en: "From 1, {min}, to 4, {max}." },
 
     // Benvenuto
     eyebrow:      { it: "Uomini e consumi, oggi.", en: "Men and consumption, today." },
@@ -369,8 +369,8 @@
       max: { it: "del tutto d'accordo", en: "completely agree" }
     },
     q17a: { text: { it: "Avere un fisico allenato rende un uomo più rispettato.", en: "Having a trained body makes a man more respected." } },
-    q17c: { text: { it: "Mi capita di sentirmi a disagio se il mio corpo non corrisponde a certi standard.",
-                    en: "I sometimes feel uncomfortable if my body doesn't match certain standards." } },
+    q17c: { text: { it: "È facile sentirsi a disagio quando il corpo di un uomo non corrisponde a certi standard.",
+                    en: "It's easy for a man to feel uncomfortable when his body doesn't match certain standards." } },
     q17d: { text: { it: "Andare a vedere una partita con i miei amici e bermi una buona birra è ancora centrale nella mia vita sociale.",
                     en: "Going to watch a match with my friends and having a good beer is still central to my social life." } },
     q17e: { text: { it: "La palestra per me è anche un luogo dove stare con altre persone.",
