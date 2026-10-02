@@ -546,13 +546,13 @@
       body = '<div class="scale stagger">' +
         '<div class="scale-row" role="radiogroup" aria-labelledby="q-title" style="--v:' + v + '">' +
           '<div class="scale-track" aria-hidden="true"><div class="scale-fill"></div></div>' +
-          [1, 2, 3, 4, 5].map(function (n) {
-            var label = n === 1 ? n + " – " + tr(g.min) : n === 5 ? n + " – " + tr(g.max) : String(n);
+          [1, 2, 3, 4].map(function (n) {
+            var label = n === 1 ? n + " – " + tr(g.min) : n === 4 ? n + " – " + tr(g.max) : String(n);
             return '<button type="button" class="scale-btn' + (v && n <= v ? " is-under" : "") + '" role="radio" aria-checked="' + (v === n) +
               '" data-opt="' + n + '" aria-label="' + esc(label) + '"><span>' + n + "</span></button>";
           }).join("") +
         "</div>" +
-        '<div class="scale-legend" aria-hidden="true"><span><b>1</b> ' + esc(tr(g.min)) + "</span><span><b>5</b> " + esc(tr(g.max)) + "</span></div>" +
+        '<div class="scale-legend" aria-hidden="true"><span><b>1</b> ' + esc(tr(g.min)) + "</span><span><b>4</b> " + esc(tr(g.max)) + "</span></div>" +
       "</div>";
     } else if (q.type === "grid") {
       var cur = sel || {};
