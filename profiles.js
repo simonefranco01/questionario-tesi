@@ -11,8 +11,8 @@
  *                    q10 51-100 € = 1, oltre 100 € = 2
  *                    q10d almeno una zona = 1
  *   Tradizione (0-5): q15 bar o stadio = 2
- *                    q17d 3 = 1, 4-5 = 2
- *                    q17h 4-5 = 1
+ *                    q17d 3 = 1, 4 = 2
+ *                    q17h 3-4 = 1
  *   Soglie: Corpo alto da 4, Tradizione alta da 3 (da ricontrollare sulle prime risposte).
  *
  * Percorso B: Corpo (0-6) da qb6, qb9, qb10 come sopra, alto da 3; stile di scelta da qb10b:
@@ -39,7 +39,7 @@ window.PROFILES = (function () {
     if (a.q15 === "bar" || a.q15 === "stadio") trad += 2;
     if (a.q17d === 3) trad += 1;
     if (a.q17d >= 4) trad += 2;
-    if (a.q17h >= 4) trad += 1;
+    if (a.q17h >= 3) trad += 1;
     return { corpo: corpo, tradizione: trad };
   }
 
@@ -597,8 +597,8 @@ window.PROFILES = (function () {
     a = a || {};
     var out = [];
     if (a.qw3 === "spesso" || a.qw3 === "qualche") out.push("pinktax");
-    if (Number(a.qw5b) >= 4) out.push("mancanza");
-    if (Number(a.qw5a) >= 4) out.push("non_finiti");
+    if (Number(a.qw5b) >= 3) out.push("mancanza");
+    if (Number(a.qw5a) >= 3) out.push("non_finiti");
     if (arr(a.qw2).some(function (x) { return x !== "niente"; })) out.push("social");
     if (arr(a.qw4).indexOf("etichetta") !== -1) out.push("etichetta");
     if (a.qw3 === "mai_fatto_caso") out.push("pinktax_occhio");
