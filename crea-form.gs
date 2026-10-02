@@ -24,7 +24,7 @@ var VECCHIO_FORM_ID = '1hHKRPR11bpnVouLEt3G0sNRle6Kp-hg3JGqmszU-cUk';
 
 var SCALA_MIN = 'Per niente d\'accordo';
 var SCALA_MAX = 'Del tutto d\'accordo';
-var AIUTO_SCALA = 'Quanto sei d\'accordo con queste affermazioni? 1 = per niente d\'accordo, 5 = del tutto d\'accordo';
+var AIUTO_SCALA = 'Quanto sei d\'accordo con queste affermazioni? 1 = per niente d\'accordo, 4 = del tutto d\'accordo';
 
 var CONSUMI_BASE = [
   'Integratori proteici',
@@ -84,7 +84,7 @@ var DOMANDE = [
   { k: 'q15', type: 'single', t: '15. Nel tempo libero con gli amici, dove passi più tempo?',
     o: ['Bar o locali', 'Stadio o partite in TV', 'Palestra o sport', 'A casa', 'All\'aperto (escursioni, caccia, pesca)', 'Altro'] },
   { k: 'q17a', type: 'scale', t: '17a. Avere un fisico allenato rende un uomo più rispettato.' },
-  { k: 'q17c', type: 'scale', t: '17c. Mi capita di sentirmi a disagio se il mio corpo non corrisponde a certi standard.' },
+  { k: 'q17c', type: 'scale', t: '17c. È facile sentirsi a disagio quando il corpo di un uomo non corrisponde a certi standard.' },
   { k: 'q17d', type: 'scale', t: '17d. Andare a vedere una partita con i miei amici e bermi una buona birra è ancora centrale nella mia vita sociale.' },
   { k: 'q17e', type: 'scale', t: '17e. La palestra per me è anche un luogo dove stare con altre persone.' },
   { k: 'q17f', type: 'scale', t: '17f. Come appare fisicamente un uomo conta poco.' },
@@ -179,7 +179,7 @@ function creaQuestionario() {
         it = form.addCheckboxItem().setTitle(d.t).setChoiceValues(d.o);
         break;
       case 'scale':
-        it = form.addScaleItem().setTitle(d.t).setBounds(1, 5).setLabels(SCALA_MIN, SCALA_MAX).setHelpText(AIUTO_SCALA);
+        it = form.addScaleItem().setTitle(d.t).setBounds(1, 4).setLabels(SCALA_MIN, SCALA_MAX).setHelpText(AIUTO_SCALA);
         break;
       case 'paragraph':
         it = form.addParagraphTextItem().setTitle(d.t);
@@ -260,7 +260,7 @@ function aggiungiDomandeDonne() {
     switch (d.type) {
       case 'single': it = form.addMultipleChoiceItem().setTitle(d.t).setChoiceValues(d.o); r = it.createResponse(d.o[0]); break;
       case 'multi': it = form.addCheckboxItem().setTitle(d.t).setChoiceValues(d.o); r = it.createResponse([d.o[0]]); break;
-      case 'scale': it = form.addScaleItem().setTitle(d.t).setBounds(1, 5).setLabels(SCALA_MIN, SCALA_MAX).setHelpText(AIUTO_SCALA); r = it.createResponse(1); break;
+      case 'scale': it = form.addScaleItem().setTitle(d.t).setBounds(1, 4).setLabels(SCALA_MIN, SCALA_MAX).setHelpText(AIUTO_SCALA); r = it.createResponse(1); break;
     }
     it.setRequired(false);
     var m = form.createResponse().withItemResponse(r).toPrefilledUrl().match(/entry\.(\d+)=/);
